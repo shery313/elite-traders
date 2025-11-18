@@ -1,4 +1,8 @@
+import etimg from "../../../assets/et.jpg"
+import filer from "../../../assets/filer_image.png"
+import reg from "../../../assets/registration.png"
 const HomeHeroSection = () => {
+
   return (
     <section className="w-full bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
@@ -33,7 +37,8 @@ const HomeHeroSection = () => {
 
         {/* Right Graphic / Image */}
         <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
-          <div className="w-72 md:w-96 h-72 md:h-96 bg-gradient-to-br from-green-400 to-green-600 rounded-xl opacity-90 shadow-2xl animate-pulse"></div>
+        <img src={etimg} alt="" className="w-72 md:w-96 h-72 md:h-96 bg-gradient-to-br from-green-400 to-green-600 rounded-xl opacity-90 shadow-2xl animate-pulse" />
+          {/* <div className="w-72 md:w-96 h-72 md:h-96 bg-gradient-to-br from-green-400 to-green-600 rounded-xl opacity-90 shadow-2xl animate-pulse"></div> */}
         </div>
       </div>
 
@@ -56,9 +61,10 @@ const HomeHeroSection = () => {
             </p>
 
             {/* If you want to show an image, replace this div with <img src="/certificate.png" /> */}
-            <div className="w-full h-48 bg-gray-700 rounded-md flex items-center justify-center text-gray-400">
+            <img src={filer} className="w-full h-80 bg-gray-700 rounded-md flex items-center justify-center text-gray-400" alt="" />
+            {/* <div >
               Certificate Preview
-            </div>
+            </div> */}
           </div>
 
           {/* Company Registration */}
@@ -70,10 +76,10 @@ const HomeHeroSection = () => {
               Our company is legally registered and recognized by national authorities. 
               All operations follow official compliance, licensing, and verification standards.
             </p>
-
-            <div className="w-full h-48 bg-gray-700 rounded-md flex items-center justify-center text-gray-400">
-              Registration Document
-            </div>
+              <img src={reg} alt="" className="w-full h-80 bg-gray-700 rounded-md flex items-center justify-center text-gray-400" />
+            {/* <div "> */}
+              {/* Registration Document */}
+            {/* </div> */}
           </div>
         </div>
       </div>
