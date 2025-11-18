@@ -9,10 +9,51 @@ const HomeHeroSection = () => {
   const [amount, setAmount] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("bank");
 
+  // Mock data - replace with actual data from backend
+  const userStats = {
+    totalDeposit: 12500,
+    totalWithdraw: 8500,
+    totalProfit: 4200,
+    pendingWithdraw: 1500,
+    referralBonus: 850,
+    teamMembers: 12,
+    teamInvestment: 45000
+  };
+
+  const investmentPlans = [
+    {
+      name: "Starter Plan",
+      minAmount: 100,
+      maxAmount: 1000,
+      duration: "30 days",
+      dailyProfit: "1.5%",
+      totalReturn: "145%",
+      features: ["Basic Support", "Email Notifications"]
+    },
+    {
+      name: "Professional Plan",
+      minAmount: 1000,
+      maxAmount: 5000,
+      duration: "60 days",
+      dailyProfit: "2.2%",
+      totalReturn: "232%",
+      features: ["Priority Support", "Trading Signals", "Market Analysis"]
+    },
+    {
+      name: "Elite Plan",
+      minAmount: 5000,
+      maxAmount: 50000,
+      duration: "90 days",
+      dailyProfit: "3.5%",
+      totalReturn: "415%",
+      features: ["24/7 Support", "Personal Manager", "Advanced Tools"]
+    }
+  ];
+
   const handleDeposit = (e) => {
     e.preventDefault();
     // Handle deposit logic here
-    console.log(`Depositing $${amount} via ${paymentMethod}`);
+    console.log(`Depositing Rs${amount} via ${paymentMethod}`);
     setShowDepositModal(false);
     setAmount("");
   };
@@ -20,7 +61,7 @@ const HomeHeroSection = () => {
   const handleWithdraw = (e) => {
     e.preventDefault();
     // Handle withdraw logic here
-    console.log(`Withdrawing $${amount} via ${paymentMethod}`);
+    console.log(`Withdrawing Rs${amount} via ${paymentMethod}`);
     setShowWithdrawModal(false);
     setAmount("");
   };
@@ -79,6 +120,106 @@ const HomeHeroSection = () => {
             alt="Elite Trader Platform" 
             className="w-72 md:w-96 h-72 md:h-96 bg-gradient-to-br from-green-400 to-green-600 rounded-xl opacity-90 shadow-2xl animate-pulse" 
           />
+        </div>
+      </div>
+
+      {/* User Statistics Section */}
+      <div className="max-w-7xl mx-auto px-6 mt-20">
+        <h2 className="text-3xl font-bold text-center mb-10">
+          Your Investment Overview
+        </h2>
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+          <div className="bg-gray-800 p-4 rounded-lg border border-green-500 text-center">
+            <div className="text-2xl font-bold text-green-400">${userStats.totalDeposit}</div>
+            <div className="text-gray-300 text-sm">Total Deposit</div>
+          </div>
+          <div className="bg-gray-800 p-4 rounded-lg border border-blue-500 text-center">
+            <div className="text-2xl font-bold text-blue-400">Rs{userStats.totalWithdraw}</div>
+            <div className="text-gray-300 text-sm">Total Withdraw</div>
+          </div>
+          <div className="bg-gray-800 p-4 rounded-lg border border-purple-500 text-center">
+            <div className="text-2xl font-bold text-purple-400">Rs{userStats.totalProfit}</div>
+            <div className="text-gray-300 text-sm">Total Profit</div>
+          </div>
+          <div className="bg-gray-800 p-4 rounded-lg border border-yellow-500 text-center">
+            <div className="text-2xl font-bold text-yellow-400">Rs{userStats.pendingWithdraw}</div>
+            <div className="text-gray-300 text-sm">Pending Withdraw</div>
+          </div>
+        </div>
+
+        {/* Referral & Team Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
+          <div className="bg-gray-800 p-4 rounded-lg border border-pink-500 text-center">
+            <div className="text-2xl font-bold text-pink-400">Rs{userStats.referralBonus}</div>
+            <div className="text-gray-300 text-sm">Referral Bonus</div>
+          </div>
+          <div className="bg-gray-800 p-4 rounded-lg border border-indigo-500 text-center">
+            <div className="text-2xl font-bold text-indigo-400">{userStats.teamMembers}</div>
+            <div className="text-gray-300 text-sm">Team Members</div>
+          </div>
+          <div className="bg-gray-800 p-4 rounded-lg border border-teal-500 text-center col-span-2 md:col-span-1">
+            <div className="text-2xl font-bold text-teal-400">Rs{userStats.teamInvestment}</div>
+            <div className="text-gray-300 text-sm">Team Investment</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Investment Plans Section */}
+      <div className="max-w-7xl mx-auto px-6 mt-20">
+        <h2 className="text-3xl font-bold text-center mb-10">
+          Investment Plans
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {investmentPlans.map((plan, index) => (
+            <div key={index} className="bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
+              <div className="bg-gradient-to-r from-green-500 to-green-600 p-4 text-center">
+                <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
+              </div>
+              <div className="p-6">
+                <div className="text-center mb-6">
+                  <div className="text-3xl font-bold text-green-400">{plan.dailyProfit}</div>
+                  <div className="text-gray-300">Daily Profit</div>
+                </div>
+                
+                <div className="space-y-3 mb-6">
+                  <div className="flex justify-between">
+                    <span className="text-gray-300">Minimum:</span>
+                    <span className="text-white font-semibold">Rs{plan.minAmount}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-300">Maximum:</span>
+                    <span className="text-white font-semibold">Rs{plan.maxAmount}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-300">Duration:</span>
+                    <span className="text-white font-semibold">{plan.duration}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-300">Total Return:</span>
+                    <span className="text-green-400 font-semibold">{plan.totalReturn}</span>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold mb-3">Features:</h4>
+                  <ul className="space-y-2">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center text-gray-300">
+                        <span className="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <button className="w-full bg-green-400 text-black font-semibold py-3 rounded-md hover:bg-green-300 transition">
+                  Invest Now
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 

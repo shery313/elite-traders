@@ -12,6 +12,8 @@ import CreateStaff from "../staff/CreateStaff";
 import Footer from "../Common/Footer";
 import Login from "../Common/Login";
 import Signup from "../Common/Signup";
+import Withdraw from "../Common/Withdraw";
+import Deposit from "../Common/Deposit";
 const AppRoutes = () => {
   return (
     <Router>
@@ -22,8 +24,8 @@ const AppRoutes = () => {
         {/* <Route path="/bills/tr30/:id" element={<Tr30Page />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/bills" element={<Bills />} />
-        <Route path="/staff" element={<Staff />} />
+        <Route path="/withdraw" element={<Withdraw />} />
+        <Route path="/deposit" element={<Deposit />} />
         <Route path="/vendor" element={<Vendors />} />
         <Route path="/create-vendor" element={<CreateVendor/>}/>
         <Route path="/create-staff" element={<CreateStaff/>}/>

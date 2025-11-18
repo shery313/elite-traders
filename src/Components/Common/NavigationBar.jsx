@@ -5,11 +5,10 @@ const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { name: "Dashboard", href: "#dashboard" },
-    { name: "Markets", href: "#markets" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Education", href: "#education" },
-    { name: "Contact", href: "#contact" },
+    { name: "Dashboard", href: "/" },
+    { name: "Deposit", href: "deposit" },
+    { name: "Withdraw", href: "withdraw" },
+ 
   ];
 
   return (
