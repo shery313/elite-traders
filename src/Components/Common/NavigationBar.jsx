@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const NavigationBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,12 +25,16 @@ const NavigationBar = () => {
         <ul className="hidden md:flex space-x-8 text-gray-300">
           {links.map((link) => (
             <li key={link.name}>
-              <a
+              <Link
+              to={link.href} className="hover:text-green-400 transition-colors duration-300">
+              {link.name}
+              </Link>
+              {/* <a
                 href={link.href}
-                className="hover:text-green-400 transition-colors duration-300"
+                
               >
-                {link.name}
-              </a>
+                
+              </a> */}
             </li>
           ))}
 
